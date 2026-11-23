@@ -1,0 +1,41 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "age-plugin-pivcard"
+version = "0.1.0"
+description = "API keys and SSH keys for AI agent sessions, held behind a PIV smart card: an age plugin, withsecrets and an SSH agent"
+readme = "README.md"
+license = { text = "MIT OR WTFPL" }
+authors = [{ name = "Sébastien Armleder" }]
+keywords = ["age", "piv", "smart card", "secure element", "ssh-agent", "secrets", "api keys", "ai agents"]
+requires-python = ">=3.10"
+dependencies = ["cryptography>=41", "pyscard>=2.0"]
+
+[project.urls]
+Repository = "https://github.com/sebarmled/piv-secrets-for-ai-agents"
+
+[project.optional-dependencies]
+dev = ["pytest", "ruff", "pyyaml", "pywinpty; sys_platform == 'win32'"]
+
+[project.scripts]
+age-plugin-pivcard = "pivcard.plugin:main"
+pivcard = "pivcard.tool:main"
+withsecrets = "pivcard.withsecrets:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 120
+src = ["src", "tests"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B", "SIM", "RUF"]
+
+[tool.ruff.lint.per-file-ignores]
+"tests/*" = ["RUF012"]

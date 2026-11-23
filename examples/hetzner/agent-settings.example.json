@@ -1,0 +1,26 @@
+{
+  "env": {
+    "PIVCARD_NO_PROMPT": "1"
+  },
+  "permissions": {
+    "allow": [
+      "Bash(python ~/piv-secrets-for-ai-agents/examples/hetzner/hz.py status)",
+      "Bash(python ~/piv-secrets-for-ai-agents/examples/hetzner/hz.py ssh:*)",
+      "Bash(withsecrets status)",
+      "Bash(pivcard ssh status)"
+    ],
+    "ask": [
+      "Bash(python ~/piv-secrets-for-ai-agents/examples/hetzner/hz.py create)",
+      "Bash(python ~/piv-secrets-for-ai-agents/examples/hetzner/hz.py destroy:*)",
+      "Bash(withsecrets hetzner:*)"
+    ],
+    "deny": [
+      "Bash(withsecrets unlock:*)",
+      "Bash(withsecrets set:*)",
+      "Bash(pivcard ssh unlock:*)",
+      "Bash(pivcard check:*)",
+      "Bash(age -d:*)",
+      "Bash(age --decrypt:*)"
+    ]
+  }
+}

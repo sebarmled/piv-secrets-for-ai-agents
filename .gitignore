@@ -1,0 +1,10 @@
+spike/
+__pycache__/
+*.pyc
+.venv/
+.pytest_cache/
+*.egg-info/
+dist/
+build/
+.ruff_cache/
+drafts/
