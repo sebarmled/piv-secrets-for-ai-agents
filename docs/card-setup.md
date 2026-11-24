@@ -60,6 +60,10 @@ cryptnox-id --reader "$R" piv perso import-cert --slot 9A --default-keys --cert 
 Both starting points were tested: a blank card set up with exactly these commands, and a card that was
 already personalised.
 
+Versions of the card tool this was tested with: every command above with `cryptnox-id` 1.1.0, on Linux;
+every command from `set-pin` on with 1.2.0 as well, on Linux and on Windows. The first two commands can
+run only once per card and need a blank one, so they were not repeated with 1.2.0.
+
 ## With another PIV card or token
 
 Use its own tool to do the same two things for each slot: generate an ECC P-256 key on the card, and store

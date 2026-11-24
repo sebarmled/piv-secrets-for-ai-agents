@@ -188,8 +188,14 @@ longer has an `unlock` command, it marks the end of the options of `ssh`, and it
 addresses itself). Those changes are covered by the tests against a stand-in for the API and by the
 login tests above, not by a second run against the real API.
 
+The cards were set up with version 1.1.0 of the card tool `cryptnox-id`. After version 1.2.0 came out,
+one card was given a new PIN and PUK, new keys and new certificates with it, using the commands of
+[docs/card-setup.md](docs/card-setup.md) from `set-pin` on. The card checks in the first list above were
+then repeated with the final code and gave the same results. The two commands before `set-pin` lay down
+the structure of a blank card and can run only once per card; they were run with 1.1.0 only.
+
 **These tests show that the tools behave as described. They do not show that the test cards kept a
-secret.** Both test cards accept the publicly known test administration keys, which is the case described
+secret.** The test cards accept the publicly known test administration keys, which is the case described
 above as protecting nothing.
 
 ## What was checked on Windows
@@ -207,6 +213,10 @@ contact reader (the card that was set up from blank on Linux). The results match
   another pinned host key it is refused;
 - after `pivcard ssh lock`, OpenSSH sees no key, gets no signature and cannot log in;
 - with several readers attached and none chosen, the commands refuse to pick one and send nothing.
+
+For that run the card had been set up on Linux. The setup commands were later run on Windows as well,
+with `cryptnox-id` 1.2.0 and from `set-pin` on, and the checks in this list were repeated on the card set
+up that way, with the same results.
 
 The whole test suite also passes there with a software card, including the PIN typed at age's prompt on a
 Windows console. Not run on Windows: the Hetzner example against the real API (it ran from Linux).
