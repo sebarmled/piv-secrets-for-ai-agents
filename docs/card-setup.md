@@ -36,11 +36,14 @@ in it slot 9A is allowed to sign, which SSH needs. According to the card tool, i
 9A the authentication role only.
 
 ```sh
-cryptnox-id --reader "$R" factory piv preperso load-config --profile ssh --default-keys
-cryptnox-id --reader "$R" factory piv preperso set-mgmt-key --default-keys
+cryptnox-id --reader "$R" piv perso load-config --profile ssh --default-keys
+cryptnox-id --reader "$R" piv perso set-mgmt-key --default-keys
 cryptnox-id --reader "$R" piv perso set-pin --default-keys     # asks for the new PIN (6 to 8 digits)
 cryptnox-id --reader "$R" piv perso set-puk --default-keys     # asks for the new PUK (8 digits)
 ```
+
+These are the command names of `cryptnox-id` 1.3 and later. In 1.2 and older, the first two were
+`factory piv preperso load-config` and `factory piv preperso set-mgmt-key`.
 
 ### 2. The two keys and their certificates
 
